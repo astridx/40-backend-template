@@ -143,6 +143,10 @@
 				// Remove the tab focus from the inputs
 				input.setAttribute('tabindex', '-1');
 
+				if (this.hasAttribute('disabled')) {
+					input.setAttribute('disabled', '');
+				}
+
 				if (input.checked) {
 					spanFirst.setAttribute('aria-checked', true);
 				}
@@ -239,7 +243,7 @@
 		}
 
 		keyEvents(event) {
-			if (event.keyCode === KEYCODE.ENTER || event.keyCode === KEYCODE.SPACE) {
+			if ((event.keyCode === KEYCODE.ENTER || event.keyCode === KEYCODE.SPACE) && !this.hasAttribute('disabled')) {
 				event.preventDefault();
 				this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1;
 				this.switch();

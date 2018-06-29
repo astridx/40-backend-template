@@ -95,7 +95,6 @@ input:checked {
 
 }
 
-
 // Alternate styles
 @each $color, $value in $theme-colors {
   .#{$color}.switcher.active {
@@ -103,6 +102,10 @@ input:checked {
     border-color: theme-color-level($color);
     box-shadow: 0 0 0 calc(#{$switcher-height} / 2) theme-color-level($color) inset;
   }
+}
+
+joomla-field-switcher[disabled=""] .switcher {
+	opacity: .2;
 }
 
 @keyframes switcherPulsate {
